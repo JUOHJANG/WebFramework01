@@ -1,0 +1,111 @@
+@charset "utf-8";
+
+html,body {height:100%}
+
+/* header */
+#header {position:absolute;top:0;left:0;width:100%;height:76px;min-width:1200px;background:url('../images/common/header_bg.gif') repeat-x;}
+#header .header_bg {height:72px;width:100%;}
+#header .header_bgB {height:4px;width:100%;background:#3e7ed6;background: #0f2289 url('../images/common/header_bar.gif') repeat-y;}
+#header h1 {position:absolute;top:32px;left:34px;z-index:999;}
+
+#header .topmenu_wrap {position:absolute;width:100%;height:73px;padding-left:218px;*padding-left:0;z-index:998;}
+#header .gnb {position:relative;float:right;margin-right:25px;margin-top:4px;height:18px;}
+#header .gnb .log_info {position:relative;float:left;margin-left:5px;}
+#header .gnb li {float:left;margin-left:10px;}
+#header .gnb .log_info .user {font:bold 11px '맑은고딕',Dotum,Arial,sans-serif;color:#9dc6ff;margin-left:2px;margin-top:3px;}
+#header .gnb .log_info .btn_logout_wrap {position:relative;float:left;}
+#header .gnb .log_info .btn_logout {font:bold 11px Arial,sans-serif;color:#adb2bd;text-align:center;white-space:nowrap;height:18px;padding:1px 10px 0 10px;border-radius:3px;border:1px solid #1e2128;display:inline-block;cursor:pointer;
+	background: #363d4f; /* Old browsers */
+	background: -moz-linear-gradient(top, #363d4f 0%, #252b3b 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#363d4f), color-stop(100%,#252b3b)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, #363d4f 0%,#252b3b 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, #363d4f 0%,#252b3b 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, #363d4f 0%,#252b3b 100%); /* IE10+ */
+	background: linear-gradient(to bottom, #363d4f 0%,#252b3b 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#363d4f', endColorstr='#252b3b',GradientType=0 ); /* IE6-9 */
+}
+#header .gnb .log_info .btn_logout:hover {color:#c0c3c9;
+	background: #303747; /* Old browsers */
+	background: -moz-linear-gradient(top, #303747 0%, #202635 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#303747), color-stop(100%,#202635)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, #303747 0%,#202635 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, #303747 0%,#202635 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, #303747 0%,#202635 100%); /* IE10+ */
+	background: linear-gradient(to bottom, #303747 0%,#202635 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#303747', endColorstr='#202635',GradientType=0 ); /* IE6-9 */
+}
+#header .gnb .log_info .btn_logout:active {/*position:relative;top:1;left:1;box-shadow: 1px 1px 1px #191d27 inset;*/}
+#header .gnb_navi {position:relative;float:left;margin-top:3px;}
+#header .gnb_navi ul li {float:left;display:inline;padding:0px 7px;text-decoration:none;margin:0;font:bold 11px Arial,sans-serif;background:url('../images/common/gnb_navi_bar.png') no-repeat right 1px;}
+#header .gnb_navi ul li:last-child {background:none;}
+#header .gnb_navi ul li a {color:#a8adbb;text-decoration:none;}
+#header .gnb_navi ul li a:hover {}
+#header .confidential {position:relative;float:right;*float:none;margin-left:7px;display:inline-block;height:18px;}
+
+#lnb {position:absolute;left:240px;bottom:0;min-width:935px;}
+
+/* contents */
+#contents_wrapper {height:auto !important;height:100%;min-height:100%;min-width:1200px;}
+#contents {margin:0 25px 0 25px;}
+
+#area {position:relative;*position:static;width:1101px;margin:0 auto;}
+#area .stats {width:100%;height:370px;}
+#area .stats_content {text-align:center;padding-top:45px;}
+#area .board {width:100%;margin-top:45px;margin-bottom:20px;}
+#area .tabs_wrapper {float:left;width:528px;}
+#area .tabs_wrapper .tab_container {clear:both;float:left;width:528px;margin-bottom:30px;}
+#area .tabs {position:relative;*position:static;height:20px;margin:0;padding:0;overflow:hidden;}
+#area .tabs span {}
+#area .tabs span.more {position:absolute;*position:static;*margin-left:420px;right:0;width:33px;height:14px;padding-left:0px;background:url('../images/common/ico_more.png') no-repeat right 5px;}
+#area .tabs span.more a {font:normal 11px Arial,sans-serif;color:#727272;text-decoration:none;}
+
+.ub-control.table.notice {width:528px;table-layout:fixed;}
+.ub-control.table.notice th {padding:7px 4px;border-top:2px solid #0f2289;border-bottom:1px solid #0f2289;background:#fff;font:bold 11px Arial,sans-serif;color:#0f2289;text-align:center;text-indent:0;}
+.ub-control.table.notice td {padding:6px 4px;border-bottom:1px solid #d9d9d9;color:#666;background:#fff;font:normal 12px Arial,sans-serif;text-overflow:ellipsis;overflow:hidden;white-space:nowrap;}
+.ub-control.table.notice td a {color:#666;text-decoration:none;}
+.ub-control.table.notice td a:hover,.r_tab_table td a:active {}
+.ub-control.table.notice td.cont {padding-left:10px;}
+.ub-control.table.notice td.date, .writer {text-align: center;}
+
+/* footer */
+#footer {position:fixed;bottom:0;width:100%;min-width:1200px;height:38px;margin-top:-38px;border-top:1px solid #cdd2d9;background:#FFF;padding:0 25px;font:bold 11px Arial,sans-serif;color:#6a6a6a;z-index: 100;}
+#footer .samsung {background: url('../images/common/logo_samsung_f.png') no-repeat 3px center;height:38px;line-height:38px;padding-left:75px;display:inline-block;}
+#footer .policy {margin-left:10px;}
+#footer .policy a {font:bold 11px Arial,sans-serif;color:#0d54aa;text-decoration:underline;}
+
+/*error*/
+.error_wrap {position:fixed;top:0;right:0;left:0;bottom:0;background-position:50% 50%;}
+.error {text-align:center;}
+.error img {padding-bottom:3px;}
+.errorpage {position:relative;top:50%;left:50%;text-align:center;line-height:18px;padding:35px 0;font-weight:bold;margin-top:120px;width:650px;margin-left:-325px;/*border:1px solid #d7d7d7;*/}
+.error_text {font-size:16px;}
+.errorpage img {padding-bottom:8px;}
+.orange_color {color:#e55b2b;line-height:25px;}
+
+.help_wrap_left {
+	position: absolute;
+	overflow: hidden;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	right: 0;
+	bottom: 0;
+}
+
+.help_sidebar {
+	position: absolute;
+	z-index: 20;
+	width: 256px;
+	height: 100%;
+	top: 0;
+	background: url('../images/common/bg_sidebar.png') repeat;
+}
+
+.help_contents {
+	position: absolute;
+	z-index: 20;
+	top: 0;
+	left: 254px;
+	width: 746px;
+	bottom: 0;
+}

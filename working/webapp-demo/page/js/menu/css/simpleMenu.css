@@ -1,0 +1,47 @@
+@charset "utf-8";
+
+nav .ub-control.menu:after {content:".";display:block;height:0;clear:both;visibility:hidden;}
+nav .ub-control.menu li a {display:inline-block;padding:4px 18px 8px;margin:0 5px;border:1px solid #35373e;border-bottom:none;font-family:Microsoft Sans Serif;font-weight:bold;font-size:13px;color:#aeb0b1;cursor:pointer;}
+nav .ub-control.menu li.menu-item {position:relative;float:left;padding-top:1px;background:url(../../../../images/common/bar_nav2.gif) no-repeat 0px 10px;}
+nav .ub-control.menu li.menu-item:first-child {background:none;}
+nav .ub-control.menu li.menu-item a {padding-bottom:7px;}
+
+nav .ub-control.menu .menu-sub-box {display:none;position:absolute;top:30px;/*top:44px;left:50%;*/width:210px;margin-left:-8px;z-index: 2002;background-color:#3d8bbc;border:1px solid #255879;border-top:none;border-radius:0px 0px 6px 6px;}
+nav .ub-control.menu .menu-sub-box .subbox-arrow {display:none;position:absolute;top:0px;left:50%;margin-left:-6px;display:inline-block;width:13px;height:8px;/*background:url(../../../page/images/common/bg_menu_subbox_arrow.gif) no-repeat top center;*/z-index:2002;}
+nav .ub-control.menu .menu-sub-box ul {/*margin-top:6px;*/padding:2px 0;/* background-color:#488cda;*/}
+nav .ub-control.menu .menu-sub-box ul:after {content:".";display:block;height:0;clear:both;visibility:hidden;}
+nav .ub-control.menu .menu-sub-box ul li.menu-sub-item {position:relative;padding-top:1px;background:url(../../../../images/common/bg_line_dotted.gif) repeat-x top;line-height:15px;}
+nav .ub-control.menu .menu-sub-box ul li.menu-sub-item:first-child {background:none;}
+nav .ub-control.menu .menu-sub-box ul li.menu-sub-item a {display:block;padding:2px 10px 3px 12px;border:none;border-radius:0px 0px 0 0;background-image:none;/*background-image:url(../../../page/images/common/ico_submenu.gif);background-color: #488cda;*/background-repeat:no-repeat;/*background-position:10px 9px;*/font:bold 12px Arial;color:#2b93c2;}
+nav .ub-control.menu .menu-sub-box ul li.menu-sub-item:hover a, nav .ub-control.menu .menu-sub-box ul li.menu-sub-item a:hover {background-color:#24618a;background-position:10px -78px;color:#d1e6f2;}
+nav .ub-control.menu li.menu-item:hover a {padding-top:6px;color:#FFF;background:#3d8bbc url(../../../../images/common/bg_nav_over2.gif) repeat-x 0 0;}
+nav .ub-control.menu li.menu-item:hover .menu-sub-box ul li a {margin:0;color:#d1e6f2;font-weight:normal;}
+nav .ub-control.menu li.menu-item:hover .menu-sub-box ul li:hover a, nav .ub-control.menu li.menu-item:hover .menu-sub-box ul li a:hover {color:#fff;}
+
+
+
+nav .ub-control.menu .menu-sub-box .menu-sub-box {display:none;position:absolute;left:195px;top:-4px;width:168px;margin-left:0px;z-index: 2002;background-color:#2072a5;border:1px solid #02304b;border-radius:0px 6px 6px 6px;}
+nav .ub-control.menu .menu-sub-box .menu-sub-box .subbox-arrow {position:absolute;top:10px;left:1px;display:inline-block;width:5px;height:7px;background:url(../../../../images/common/bg_menu_subbox_arrow.gif) no-repeat top center;z-index:2002;}
+nav .ub-control.menu .menu-sub-box .menu-sub-box ul {/*margin-top:6px;*/padding:2px 0;margin-top:0;/* background-color:#488cda;*/}
+nav .ub-control.menu .menu-sub-box .menu-sub-box ul:after {content:".";display:block;height:0;clear:both;visibility:hidden;}
+nav .ub-control.menu .menu-sub-box .menu-sub-box ul li.menu-sub-item {position:relative;padding-top:1px;background:url(../../../images/common/bg_line_dotted.gif) repeat-x top;line-height:15px;}
+nav .ub-control.menu .menu-sub-box .menu-sub-box ul li.menu-sub-item:first-child {background:none;}
+nav .ub-control.menu .menu-sub-box .menu-sub-box ul li.menu-sub-item a {display:block;padding:4px 10px 5px 17px;/*background-image:url(../../../page/images/common/ico_submenu.gif);background-color: #488cda;*/background-repeat:no-repeat;/*background-position:10px 9px;*/background-color:#2072a5;font:bold 12px Arial;color:#cee4fb;}
+nav .ub-control.menu .menu-sub-box .menu-sub-box ul li.menu-sub-item:hover a, nav .ub-control.menu .menu-sub-box .menu-sub-box ul li.menu-sub-item a:hover {background-color:#12466a;background-position:10px -78px;color:#fff;}
+nav .ub-control.menu li.menu-item:hover a {color:#FFF;background:#3d8bbc url(../../../../images/common/bg_nav_over2.gif) repeat-x 0 0;border:1px solid #2d2f36;border-bottom:none;border-radius:7px 7px 0 0;}
+nav .ub-control.menu li.menu-item:hover .menu-sub-box .menu-sub-box ul li a {color:#d2e7fa;}
+nav .ub-control.menu li.menu-item:hover .menu-sub-box .menu-sub-box ul li:hover a, nav .ub-control.menu li.menu-item:hover .menu-sub-box .menu-sub-box ul li a:hover {color:#fff;}
+
+
+
+nav .ub-control.menu .menu-sub-box ul li.menu-sub-item .menu-sub-arrow {position:absolute;top:7px;right:6px;display:inline-block;width:9px;height:7px;background:url(../../../../images/common/ico_menu_sub_arrow.gif) no-repeat 0 0;}
+nav .ub-control.menu .menu-sub-box ul li.menu-sub-item:hover .menu-sub-arrow {/*background:url(../../../page/images/common/ico_menu_sub_arrow.gif) no-repeat 0 -83px;*/}
+
+/* TopMenu */
+#menu-navi {
+	clear: both;
+}
+#navtabs {
+	position: relative;
+	z-index: 2001;
+}

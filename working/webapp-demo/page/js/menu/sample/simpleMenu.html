@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+	
+
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta http-equiv="pragma" content="no-cache" />
+	<meta http-equiv="cache-control" content="no-cache" />
+	<meta http-equiv="expires" content="0" /> 
+
+	<!--[if IE]> <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script> <![endif]-->
+
+	<!-- Common Js file -->
+	<script type="text/javascript" charset="UTF-8" src="../../ext/jquery/jquery-1.8.3.min.js"></script>
+	<script type="text/javascript" charset="UTF-8" src="../../ext/jquery/ui/jquery-ui-1.9.2.min.js"></script>
+	<script type="text/javascript" charset="UTF-8" src="../../ext/jquery/plugin/jquery.cookie.js"></script>
+	<script type="text/javascript" charset="UTF-8" src="../../ext/jquery/plugin/fancybox/jquery.fancybox-1.3.4.pack.js"></script>
+	<script type="text/javascript" charset="UTF-8" src="../../ext/jquery/plugin/jquery.form.js"></script>
+	<script type="text/javascript" charset="UTF-8" src="../../ext/jquery/plugin/jquery.layout.min.js"></script>
+	<script type="text/javascript" charset="UTF-8" src="../../ext/jquery/plugin/jquery.meio.mask.js"></script>
+
+	<!-- jquery shortcuts -->
+	<script type="text/javascript" charset="UTF-8" src="../../ext/sortcusts/jquery.shortcuts.min.js"></script>
+
+	<!-- Meta Info -->
+	<script type="text/javascript" charset="UTF-8" src="metaInfo.js"></script>
+
+	<!-- UXL js -->
+	<script type="text/javascript" charset="UTF-8" src="../../uxl-core-1.1.0.js"></script>
+	<script type="text/javascript" charset="UTF-8" src="../../uxl-form-1.1.0.js"></script>
+	<script type="text/javascript" charset="UTF-8" src="../../uxl-message-1.1.0.js"></script>
+	<script type="text/javascript" charset="UTF-8" src="../../uxl-ui-1.1.0.js"></script>
+	<script type="text/javascript" charset="UTF-8" src="../../uxl-util-1.1.0.js"></script>
+
+	<!-- Css -->
+	<link rel="stylesheet" type="text/css" href='../../../page/css/style.css'/>
+
+	<!-- Menu Css/Js -->
+	<link rel="stylesheet" type="text/css" href='../css/simpleMenu.css'/>
+	<script type="text/javascript" charset="UTF-8" src='../uxl-simpleMenu-1.1.0.js'></script>
+	
+	<script>
+		uxl.onLoad(function(){
+			//드롭다운 메뉴 동작 설정
+			uxl.SimpleMenu("#menu", function(event){
+				if(uxl.isNotEmpty($(this).attr("menuUrl"))){
+					alert('Selected Menu !!\n - menuId='+$(this).attr("menuId")+"\n - menuName="+$(this).attr("menuName")+\n);
+				}
+			});
+		});
+	</script>
+</head>
+<body class="ub-page portal-main" style="overflow-y: hidden;">
+	<div class="ub-frame top">
+		<div class="gnb-util">
+			<span class="login-user"><em>홍길동 (HPC)</em>님 환영합니다</span>
+			<span class="logout-button"><a href="#">Logout</a></span>
+			<span class="link-spc"><a href="#">Home</a></span>
+		</div>
+		
+<!-- Simple menu Markup -->
+		<div class="ub-layout menu simple" style="z-index:9999">
+			<nav>
+				<ul id="menu" class="ub-control menu dropdown">
+					<li class="menu-item">
+						<a menuId='MENU0001' menuUrl='VOC0001' menuName='VOC등록' class="dir" title="move to VOC등록">VOC등록</a>
+					</li>
+					<li class="menu-item">
+						<a menuId='MENU0002' menuUrl='VOC0007' menuName='VOC처리' class="dir" title="move to VOC처리">VOC처리</a>
+						<div class="menu-sub-box">
+							<span class="subbox-arrow"></span>
+							<ul class="menu-sub">
+								<li class="menu-sub-item">
+									<a menuId='MENU0022' menuUrl='VOC0007' menuName='나의 등록VOC'  title="move to 나의 등록VOC">나의 등록VOC</a>
+									<div class="menu-sub-box">
+										<ul class="menu-sub">
+											<li class="menu-sub-item"><a menuId='MENU0109' menuUrl='VOC0007' menuName='나의 등록VOC'  title="move to 나의 등록VOC">나의 등록VOC</a></li>
+										</ul>
+									</div>
+								</li>
+								<li class="menu-sub-item">
+									<a menuId='MENU0023' menuUrl='VOC0009' menuName='MY JOB'  title="move to MY JOB">MY JOB</a>
+									<div class="menu-sub-box">
+										<ul class="menu-sub">
+											<li class="menu-sub-item"><a menuId='MENU0110' menuUrl='VOC0009' menuName='VOC처리'  title="move to VOC처리">VOC처리</a></li>
+											<li class="menu-sub-item"><a menuId='MENU0111' menuUrl='VRE0003' menuName='사후VOC'  title="move to 사후VOC">사후VOC</a></li>
+											<li class="menu-sub-item"><a menuId='MENU0112' menuUrl='VRE0001' menuName='협조처리'  title="move to 협조처리">협조처리</a></li>
+											<li class="menu-sub-item"><a menuId='MENU0113' menuUrl='VOC0013' menuName='이관확인VOC'  title="move to 이관확인VOC">이관확인VOC</a></li>
+											<li class="menu-sub-item"><a menuId='MENU0114' menuUrl='VRE0005' menuName='A/S처리'  title="move to A/S처리">A/S처리</a></li>
+										</ul>
+									</div>
+								</li>
+								
+							</ul>
+						</div>
+					</li>
+					<li class="menu-item">
+						<a menuId='MENU0003' menuUrl='CUS0001' menuName='고객정보' class="dir" title="move to 고객정보">고객정보</a>
+						<div class="menu-sub-box">
+							<span class="subbox-arrow"></span>
+							<ul class="menu-sub">
+								<li class="menu-sub-item">
+									<a menuId='MENU0031' menuUrl='CUS0001' menuName='고객정보'  title="move to 고객정보">고객정보</a>
+								</li>
+								<li class="menu-sub-item">
+									<a menuId='MENU0106' menuUrl='CUS0003' menuName='점포정보'  title="move to 점포정보">점포정보</a>
+								</li>
+							</ul>
+						</div>
+					</li>
+			
+					<li class="menu-item">
+						<a menuId='MENU0104' menuUrl='ISS0001' menuName='개선과제' class="dir" title="move to 개선과제">개선과제</a>
+						<div class="menu-sub-box">
+							<span class="subbox-arrow"></span>
+							<ul class="menu-sub">
+								<li class="menu-sub-item">
+									<a menuId='MENU0131' menuUrl='ISS0001' menuName='이슈리스트'  title="move to 이슈리스트">이슈리스트</a>
+								</li>
+								<li class="menu-sub-item">
+									<a menuId='MENU0132' menuUrl='ISS0003' menuName='과제목록'  title="move to 과제목록">과제목록</a>
+								</li>
+								<li class="menu-sub-item">
+									<a menuId='MENU0133' menuUrl='ISS0005' menuName='과제수행'  title="move to 과제수행">과제수행</a>
+								</li>
+								<li class="menu-sub-item">
+									<a menuId='MENU0134' menuUrl='ISS0007' menuName='완료과제'  title="move to 완료과제">완료과제</a>
+								</li>
+								<li class="menu-sub-item">
+									<a menuId='MENU0135' menuUrl='ISS0009' menuName='과제현황'  title="move to 과제현황">과제현황</a>
+								</li>
+							</ul>
+						</div>
+					</li>
+				</ul>
+			</nav>	
+		</div>
+<!-- Simple menu Markup -->
+	</div>			
+</body>
+</html>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+  <entry key="mstr.server.name">DESKTOP-NE4ATKU</entry> 		<!-- 내부 -->
+<!--  <entry key="mstr.server.name">112.220.223.26</entry> -->	<!-- 외부 -->
+<entry key="mstr.default.project.name">MicroStrategy Tutorial</entry>
+<entry key="mstr.server.port">0</entry> 						<!-- 내부 -->
+<!-- <entry key="mstr.server.port">24952</entry> -->			<!-- 외부 -->
+<entry key="mstr.session.locale">1042</entry><!-- 한글 -->
+<!-- <entry key="mstr.session.locale">1033</entry> --><!-- 영어 -->
+<entry key="mstr.admin.user.id">administrator</entry>
+<entry key="mstr.admin.user.pwd"></entry>
+<entry key="mstr.trust.token">Token5F11ACA6474B30F3975B6DAF3749F16E</entry> 	 	 <!-- 내부 -->
+<!-- <entry key="mstr.trust.token">TokenDC2FD1B84CC9297F493DB5B224B4AB55</entry> --> <!-- 외부 -->
+<entry key="mstr.menu.folder.id">032A5E114A59D28267BDD8B6D9E58B22</entry>
+<entry key="mstr.menu.wizard.id">2E51A7F442F3639E2B0FF5A3C6E0896B</entry>
+<entry key="mstr.menu.lastfolder.id">9557592C4C66325AD60B52AF576434AE</entry>
+</properties>

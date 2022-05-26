@@ -1,0 +1,4 @@
+@CHARSET "UTF-8";
+
+/* 도큐먼트 실행시 표시되는 경로 표시부 숨김  */
+.mojoPath { display:none; }

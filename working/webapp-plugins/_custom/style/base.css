@@ -1,0 +1,66 @@
+@charset "utf-8";
+/* @font-face {font-family:'NanumGothic';src:url(../font/NanumGothic.eot);src:local('☺'), url(../font/NanumGothic.woff) format('woff'), url('../font/NanumGothic.ttf') format('truetype');} */
+
+body {font-family:Arial,sans-serif;font-size:12px;color:#444;}
+body,p,h1,h2,h3,h4,h5,h6,ul,ol,li,dl,dt,dd,table,th,td,form,fieldset,legend,input,textarea,button,select,a{margin:0;padding:0;-webkit-text-size-adjust:100%;}
+header,hgroup,article,nav,footer,figure,figcaption,canvas,section{display:block}
+
+ul, ol {list-style:none outside none;}
+hr {display:none;}
+a:link, a:visited {text-decoration:none;}
+a:hover, a:active {text-decoration:none;}
+a{text-decoration:none}
+a:hover,a:active,a:focus{text-decoration:none}
+a:focus,input:focus,button:focus,textarea:focus{/*outline:3px solid #d7f07f*/outline:none;}
+form *, input, select, textarea {vertical-align:middle;}
+select, textarea {background-color:#ffffff;}
+input:-webkit-autofill {
+    -webkit-box-shadow:0 0 0 50px white inset; /* Change the color to your own background color */
+    -webkit-text-fill-color: #444;
+}
+input:-webkit-autofill:focus {
+    -webkit-box-shadow: /*your box-shadow*/,0 0 0 50px white inset;
+    -webkit-text-fill-color: #444;
+}
+input[type=text]::-ms-clear {display: none;}
+form {margin:0; padding:0;}
+fieldset {border: 0 none transparent; margin: 0; padding: 0;}
+legend, caption {visibility:hidden;margin:0;padding:0;width:0;height:0;overflow:hidden;font-size:0px;line-height:0px;}
+
+img,fieldset {border:0;vertical-align:top;}
+table tr th img, table tr td img {vertical-align: middle;}
+table {width:100%;border-collapse:collapse;}
+table td * {vertical-align:middle;/*word-wrap:break-word;*/}
+em,address {font-style: normal;}
+
+a, button {cursor:pointer;outline:none;}
+
+* {
+  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+  box-sizing: border-box;         /* Opera/IE 8+ */
+}
+
+
+/* common */
+.fr {float:right;}
+.fl {float:left;}
+.clear {clear:both;}
+.vat {vertical-align:top;}
+.vam {vertical-align:middle;}
+img.vam {vertical-align:middle;margin-bottom:2px;}
+.fwb {font-weight:bold;}
+
+.pointer {cursor: pointer;}
+
+.blind{visibility:hidden;overflow:hidden;position:absolute;top:0;left:0;width:0;height:0;font-size:0;line-height:0}
+.text-dpn {text-indent:-9000px;line-height:0;font-size:0;}
+.bgn {background-image:none}
+.dipyn {display:none;}
+
+.required {display:inline-block;vertical-align:top;margin-top:4px;margin-left:4px !important;width:6px;height:6px;background:url(../images/common/ico_required.gif) no-repeat 0 0;text-indent:-9000px;line-height:0;}
+.text-left {text-align:left !important;}
+.text-right {text-align:right !important;}
+.text-center {text-align:center !important;}
+.ellipsis {white-space:nowrap !important;overflow:hidden !important;text-overflow:ellipsis !important;}
+.nowrap {white-space:nowrap !important;}

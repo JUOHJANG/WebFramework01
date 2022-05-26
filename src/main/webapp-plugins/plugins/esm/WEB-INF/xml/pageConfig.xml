@@ -1,0 +1,19 @@
+<framework>
+  <menus/>
+  <pages>
+    <page desc="Logout" desc-id="mstrWeb.8" feature-id="" login-required="false" name="logout" persist-mode="8" track="false">
+        <templates>
+            <template XMLmerge_id="1" error-title-id="mstrWeb.819">
+                <page-sections use-default="true">
+                    <page-section file-name="/plugins/esm/jsp/Logout_Links.jsp" name="links" />
+                </page-sections>
+            </template>
+        </templates>
+    </page>   
+    <page name="gateway" login-required="true">
+		<templates>
+			<template allow-cancel="false" file-name="/plugins/esm/jsp/gateway.jsp"/>
+		</templates>
+	</page>	
+  </pages>
+</framework>

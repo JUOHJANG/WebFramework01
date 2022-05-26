@@ -1,0 +1,4 @@
+{
+"value-prompt":"<pa pt=\"4\" pin=\"0\" did=\"{PROMPT_ID}\" tp=\"10\">{VALUE}</pa>",
+"element-prompt":"<pa pt=\"7\" pin=\"0\" did=\"{PROMPT_ID}\" tp=\"10\"><mi><es><at did=\"{DIMENSION_ID}\" tp=\"12\"/>{{!repeat}<e emt=\"1\" ei=\"{ELEMENT_ID}\" art=\"1\" disp_n=\"{ELEMENT_NAME}\"/>}</es></mi></pa>"
+}

@@ -1,0 +1,5 @@
+<browser-settings>
+	<!-- 리포트 상세, 프롬프트 상세 기본으로 표시하지 않기 -->
+	<browser-setting desc="Show report details" name="reportDetails" value="0" />
+	<browser-setting desc="Show prompt details" name="promptDetails" value="0" />
+</browser-settings>

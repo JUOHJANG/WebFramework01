@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<entry key="mstr.server.name">DESKTOP-2BALFL9</entry>
+<entry key="mstr.project.name">MicroStrategy Tutorial</entry>
+<entry key="mstr.user.id">administrator</entry>
+<entry key="mstr.user.pwd">mococo1$</entry>
+<entry key="mstr.url.mstrWeb">/MicroStrategy/servlet/mstrWeb</entry>
+<entry key="mstr.menu.folder.id">5B68C5AE433C728679340A91DC8F809C</entry>
+</properties>
