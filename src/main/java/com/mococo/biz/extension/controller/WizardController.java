@@ -59,7 +59,7 @@ public class WizardController {
 			String project = CustomProperties.getProperty("mstr.default.project.name");
 			String uid = mstrUser.getId();
 			
-			String folderId = (String)param.get("lvl4Id");
+			String folderId = (String)param.get("lastfolderId");
 			String folderDepth = (String) param.get("fldDepth");
 			String objTp = (String)param.get("ObjectType");
 			
@@ -89,12 +89,13 @@ public class WizardController {
 						ifolderDepth, 
 						listObjType
 			);
-			 if (!objTp.equalsIgnoreCase("FolderList")) {
+			
+			/* if (!objTp.equalsIgnoreCase("FolderList")) {
 				List<Map<String, Object>> listResult = new ArrayList<Map<String, Object>>();
 				excludeFolderObjectList(listResult, list);
 				
 				list = listResult;
-			} 
+			} */
 			
 			success.put("folder", list);
 		} catch (Exception e) {
@@ -132,14 +133,14 @@ public class WizardController {
 			String saveObjId = MstrReportUtil.ExecuteReport(session, attribute, metric, prompt, 0, 0, reportName);
 			success.put("saveObjId", saveObjId);
 		} catch (WebObjectsException e) {
-			e.printStackTrace();
+			logger.error("!!! error", e);
 		} catch (InterruptedException e) {
-			e.printStackTrace();
+			logger.error("!!! error", e);
 		}
 		return success;
 	}	
 	
-   private void excludeFolderObjectList(List<Map<String, Object>> listResult, List<Map<String, Object>> listArgs) {
+ /*  private void excludeFolderObjectList(List<Map<String, Object>> listResult, List<Map<String, Object>> listArgs) {
 	   int tmpVal = -1;
 	   List<Map<String, Object>> tmpChild = null; 
 	   for(Map<String, Object> tmpObjInfo : listArgs) {
@@ -151,7 +152,7 @@ public class WizardController {
 				listResult.add(tmpObjInfo);
 			}
 		}
-   } 
+   }*/ 
    
 	   
 }

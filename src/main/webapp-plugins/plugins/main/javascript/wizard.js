@@ -13,8 +13,8 @@ function renderMenu(folder) {
 					
 					var $parent = $(this).parent();
 					var type = $parent.attr("type");
-					var Server = 'DESKTOP-NVARPN8';
-					var Project = 'WebProject';		
+					var Server = 'DESKTOP-NE4ATKU';
+					var Project = 'MicroStrategy Tutorial';		
 					
 					if (type == "8") {
 						loadTableInfo($parent.attr("report-id"));
@@ -107,7 +107,7 @@ function loadTableInfo(SelectFldId) {
 		var option = {
 			url: contextPath+"/app/getTableList.json",			
 			type: "post",
-			data: JSON.stringify({"lvl4Id" : SelectFldId, "fldDepth":"1", "ObjectType":"FolderList"}),
+			data: JSON.stringify({"lastfolderId" : SelectFldId, "fldDepth":"1", "ObjectType":"FolderList"}),
 			contentType: "application/json;charset=utf-8",
 			dataType: "json",
 			success: function(result) {
@@ -160,7 +160,7 @@ function loadObject(SearchObj) {
 		var option = {
 			url: contextPath+"/app/getTableList.json",			
 			type: "post",
-			data: JSON.stringify({"lvl4Id" : SearchObj, "fldDepth":"-1", "ObjectType":"objs"}),
+			data: JSON.stringify({"lastfolderId" : SearchObj, "fldDepth":"-1", "ObjectType":"objs"}),
 			contentType: "application/json;charset=utf-8",
 			dataType: "json",
 			success: function(result) {

@@ -7,7 +7,7 @@
 	Date nowTime = new Date();
 	SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd a hh:mm");
 	String wizardId = CustomProperties.getProperty("mstr.menu.wizard.id");
-    String lvl4Id = CustomProperties.getProperty("mstr.menu.lvl4.id");
+    String lvl4Id = CustomProperties.getProperty("mstr.menu.lastfolder.id");
     
     /*서버정보와 프로젝트이름정보를 가져옴*/
 	String server = MstrUtil.getLiveServer(CustomProperties.getProperty("mstr.default.server"));
