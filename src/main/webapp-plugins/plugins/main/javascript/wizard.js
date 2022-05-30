@@ -1,4 +1,3 @@
-
 function renderMenu(folder) {
 	navigateDepthFirst(
 		{"id":"root", "child":folder},
@@ -14,8 +13,8 @@ function renderMenu(folder) {
 					
 					var $parent = $(this).parent();
 					var type = $parent.attr("type");
-					var Server = 'DESKTOP-NE4ATKU';
-					var Project = 'MicroStrategy%20Tutorial';		
+					var Server = 'DESKTOP-NVARPN8';
+					var Project = 'WebProject';		
 					
 					if (type == "8") {
 						loadTableInfo($parent.attr("report-id"));
@@ -47,8 +46,7 @@ function menuChild(ele,data){
  */
 function loadMenu() {
 	var option = {
-		url: contextPath+"/api/folderMenu",	
-				
+		url: contextPath+"/api/folderMenu",			
 		type: "post",
 		data: {wizard_id: wizardId},
 		contentType: "application/x-www-form-urlencoded;charset=utf-8",
@@ -109,7 +107,7 @@ function loadTableInfo(SelectFldId) {
 		var option = {
 			url: contextPath+"/app/getTableList.json",			
 			type: "post",
-			data: JSON.stringify({"lastfolderId" : SelectFldId, "fldDepth":"1", "ObjectType":"FolderList"}),
+			data: JSON.stringify({"lvl4Id" : SelectFldId, "fldDepth":"1", "ObjectType":"FolderList"}),
 			contentType: "application/json;charset=utf-8",
 			dataType: "json",
 			success: function(result) {
@@ -119,7 +117,7 @@ function loadTableInfo(SelectFldId) {
 					$('#sortable1,#sortable1-2').empty();
 					var aListFolder = result.folder; 
 					for(var i=0; i<aListFolder.length; i++) {
-						$('#sortable1').append('<li  data-obj_id="'+aListFolder[i].id+'">'+aListFolder[i].name + '</li>');
+						$('#sortable1').append('<li data-obj_id="'+aListFolder[i].id+'" class="'+aListFolder[i].id+' active" onclick="loadObject(\''+aListFolder[i].id+'\')">'+aListFolder[i].name + '</li>');
 					}
 				} else {
 					alert("메뉴정보 조회 중 오류가 발생하였습니다.");
@@ -153,10 +151,16 @@ function loadObject(SearchObj) {
 //		
 //		$('#sortable2,#sortable2-2').text('loading...');
 //		$('#sortable3,#sortable3-2').text('loading...');
+		if( !$( '#sortable1 .' + SearchObj ).hasClass('active')){ 
+			console.log(!$( '#sortable1 .' + SearchObj ).hasClass('active'))
+			return ;
+		}
+	    $( '.' + SearchObj ).removeClass( 'active' ); 
+	    $('#sortable1-2').append('<li obj_name="'+ $( '.' + SearchObj ).text() + '" obj_id="'+SearchObj+'" class="'+SearchObj+' active" onclick="removeObject(\''+ SearchObj +'\')">'+ $( '.' + SearchObj ).text() + '</li>')
 		var option = {
 			url: contextPath+"/app/getTableList.json",			
 			type: "post",
-			data: JSON.stringify({"lastfolderId" : SearchObj, "fldDepth":"-1", "ObjectType":"objs"}),
+			data: JSON.stringify({"lvl4Id" : SearchObj, "fldDepth":"-1", "ObjectType":"objs"}),
 			contentType: "application/json;charset=utf-8",
 			dataType: "json",
 			success: function(result) {
@@ -164,17 +168,28 @@ function loadObject(SearchObj) {
 				if (result && result["errorCode"] == "success") {
 					//console.log(result);
 
+
 					var attrObject = result.folder;
 					$('#sortable2,#sortable2-2').empty();
 					//$('#sortable3,#sortable3-2').empty();
 					$('#accordion').empty();
+					const cnt = $('#attribute li').length;
+					$('#attribute li').addClass('first')
 					for(var i=0; i<attrObject.length; i++) {
-						if(attrObject[i].type == "12"){ 
-							let requiredName = ""; 
-							if(!$('#'+attrObject[i].id)[0]){
-								if(attrObject[i].name.substr(0,required_prefix.length) == required_prefix){
-									requiredName = "Required"; 
-								} 
+						if(attrObject[i].type == "12"){  
+							let requiredName = "";  
+							if(attrObject[i].name.substr(0,required_prefix.length) == required_prefix){
+								requiredName = "Required"; 
+							} 
+								
+							if(cnt>0 && requiredName===""){
+								$('#'+attrObject[i].id).removeClass('first');
+								$('#attribute div').each(function(item, value){
+									console.log(value)
+									console.log($(value).children('li').length)
+								   if($(value).children('li').length===0) $(value).remove();
+								})
+							}else{ 
 								
 								if(!$('#'+attrObject[i].parentsID)[0]){
 									$('#attribute'+requiredName).append('<h3 id="'+attrObject[i].parentsID+'">'+attrObject[i].parentsName+'</h3><div id="'+attrObject[i].parentsID+'_"></div>')
@@ -188,12 +203,16 @@ function loadObject(SearchObj) {
 							//metric은 mstr metaDB에서 type컬럼으로 4로 저장이 되어 있음
 							//선택한 테이블에서 메트릭은 div.metric 태그에 위치함
 							if(!$('#'+attrObject[i].id)[0]){
-						   	 	$('#sortable3').append('<li obj_name="'+attrObject[i].name+'" obj_id="'+attrObject[i].id+'" id="'+attrObject[i].id+'">'+attrObject[i].name + '</li>');
+						   	 	$('#sortable3').append('<li obj_name="'+attrObject[i].name+'" class="'+attrObject[i].id+' active" obj_id="'+attrObject[i].id+'" id="'+attrObject[i].id+'" onClick="selectedMet(\''+attrObject[i].id+'\')">'+attrObject[i].name + '</li>');
 						   	 }
 						}		
 					}
+					
+					$( '#attribute li.first').remove();
 	        		$( "#attribute" ).accordion( "refresh" )
-	        		$( "#attributeRequired" ).accordion( "refresh" )
+	        		$( "#attributeRequired" ).accordion( "refresh" );
+	        		
+
 	        		
 				} else {
 					alert("메뉴정보 조회 중 오류가 발생하였습니다.");
@@ -225,6 +244,11 @@ function loadObject(SearchObj) {
 		};				
 		$.ajax(option);
 	}
+	function removeObject(SearchObj){ 
+		$( '#sortable1 .' + SearchObj ).addClass('active')
+		$( '#sortable1-2 .' + SearchObj ).remove(); 
+
+	}
 function selectAttr(id){
 	console.log(id)
 	const current =  $('#'+id+'.active');
@@ -246,9 +270,31 @@ function selectAttr(id){
 		//$('#'+id+'.active').prepend('<input type="checkbox">')
 	}	 
 	 
-	 		 
-
 }
+
+function selectedMet(id){
+	console.log(id)
+	const current =  $('#'+id+'.active');
+	const parentId = current.parent().attr('id');
+	console.log(parentId)
+
+	let targetAttr = 'sortable3-2';
+	if(!current.hasClass('active')){
+		return;
+	}
+	if(parentId==="sortable3-2" ){
+		console.log('active') 
+		current.remove();
+		$('#'+id).addClass('active');
+	}else{ 
+		
+		$('#sortable3-2').append('<li  obj_name="'+$('#'+id).attr('obj_name')+'" obj_id="'+id+'" id="'+id+'" class="'+id+' active" onClick="selectedMet(\''+id+'\')">'+$('#'+id).text() + '</li>');
+		$('#'+id).removeClass('active');
+		//$('#'+id+'.active').prepend('<input type="checkbox">')
+	}	 
+	 
+}
+
 
 /*
  * date : 2022-04-25
@@ -256,7 +302,7 @@ function selectAttr(id){
  * MstrController.java의 @RequestMapping = getAttrMetricInfo 참조
  */	
  
-function save_report() {
+function saveReport() {
 		
 		var SelectedAttribute = new Array();
 		var SelectedMetric = new Array();
@@ -278,7 +324,7 @@ function save_report() {
 		var MetricParam = JSON.stringify({"Metric":SelectedMetric});
 		var ReportName = $('#recipient-name').val()+" - ";
 		var option = {
-			url: contextPath+"/app/getAttrMetricInfo.json",		
+			url: contextPath+"/app/getSaveReport.json",		
 			type: "post",
 			data: JSON.stringify({"Attribute": SelectedAttribute, "Metric": SelectedMetric, ReportName, "Prompt":SelectedPrompt}),
 			contentType: "application/json;charset=utf-8",

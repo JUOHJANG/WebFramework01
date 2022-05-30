@@ -137,7 +137,17 @@ ul#menu {background: #f8f9fa;width: 199px;border: #f8f9fa;}
 
 ul#menu>li.ui-menu-item {width: 199px;}
 .connectedSortable li {cursor: pointer;}
+.connectedSortable li.active:hover {
+    background: #111;
+    color: #fff;
+}
+.connectedSortable li.active {
+    color: #111;
+}
 
+.connectedSortable li {
+    color: #ddd;
+}
 .ui-accordion .ui-accordion-header {
     margin: 0;
     border-radius: 0;

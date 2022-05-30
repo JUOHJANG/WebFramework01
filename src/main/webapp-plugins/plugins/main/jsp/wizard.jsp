@@ -4,10 +4,10 @@
 <%@ page import="java.util.Date" %>
 <%@ page import="java.text.SimpleDateFormat" %>
 <%
-
 	Date nowTime = new Date();
 	SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd a hh:mm");
 	String wizardId = CustomProperties.getProperty("mstr.menu.wizard.id");
+    String lvl4Id = CustomProperties.getProperty("mstr.menu.lvl4.id");
     
     /*서버정보와 프로젝트이름정보를 가져옴*/
 	String server = MstrUtil.getLiveServer(CustomProperties.getProperty("mstr.default.server"));
@@ -68,8 +68,7 @@
     </div>
     
     <div class="row">
-    	<div class="col-2">
-    
+    	<div class="col-2"> 
       		대상주제영역<br>
 			<ul id="sortable1" class="connectedSortable connectedSortable1"> 
 			</ul> 
@@ -149,16 +148,22 @@
 	      </div>
 	      <div class="modal-footer">
 	        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
-	        <button type="button" class="btn btn-primary"  onclick="save_report();">저장</button>
+	        <button type="button" class="btn btn-primary"  onclick="saveReport();">저장</button>
 	      </div>
 	    </div>
 	  </div>
 	</div>
-<script src="http://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+<!-- <div id="reportMenu"><div report-id="root"></div></div>
+    </main>
+  </div> -->
 </div>
-  <script src="${pageContext.request.contextPath}/plugins/main/javascript/bootstrap.bundle.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js" integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE" crossorigin="anonymous"></script><script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js" integrity="sha384-zNy6FEbO50N+Cg5wap8IKA4M/ZnLJgzc6w2NqACZaK0u0FXfOWRRJOnQtpZun8ha" crossorigin="anonymous"></script><script src="dashboard.js"></script>
-  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>  
+
+
+    <script src="${pageContext.request.contextPath}/plugins/main/javascript/bootstrap.bundle.min.js"></script>
+
+      <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js" integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE" crossorigin="anonymous"></script><script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js" integrity="sha384-zNy6FEbO50N+Cg5wap8IKA4M/ZnLJgzc6w2NqACZaK0u0FXfOWRRJOnQtpZun8ha" crossorigin="anonymous"></script><script src="dashboard.js"></script>
+       <script src="https://code.jquery.com/jquery-3.6.0.js"></script>  
   <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
     <script>
     const required_prefix = "A_";
@@ -170,6 +175,7 @@
         $( "#menu1" ).menu({
           items: "> :not(.ui-widget-header)"
         }); 
+        /* 	 
     $( "#sortable1, #sortable1-2" ).sortable({
       connectWith: ".connectedSortable1",
       remove: function( event, ui ) {
@@ -179,15 +185,14 @@
       }
     }).disableSelection();
   
-	    $( "#sortable2, #sortable2-2" ).sortable({
+   $( "#sortable2, #sortable2-2" ).sortable({
 	      connectWith: ".connectedSortable2"
 	    }).disableSelection();
  
 	    $( "#sortable3, #sortable3-2" ).sortable({
 	      connectWith: ".connectedSortable3"
 	    }).disableSelection();
-	    
-
+	     */
    		$( "#attribute" ).accordion({
 			collapsible: true
 		}); 

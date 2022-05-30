@@ -1,6 +1,6 @@
 package com.mococo.microstrategy.sdk.util;
 
-import java.util.ArrayList;
+import java.util.ArrayList; 
 import java.util.Date;
 import java.util.Enumeration;
 import java.util.HashMap;
@@ -206,11 +206,31 @@ public class MstrReportUtil {
 			WebTemplate template = reportInstance.getTemplate();  //빈 리포트를 템플릿변수에 저장
 			WebObjectInfo selectedAttrs = null;
 			
+			//get filter
+			WebFilter rptFilter = null; 
+			logger.error("!!! rptFilter");
+
+			
+	
+			
 			
 			/*선택한 애트리뷰트(선택관점) 가져옴*/
 			for (int i=0; i< attribute.size(); i++) {
 				selectedAttrs = objectSource.getObject(attribute.get(i), EnumDSSXMLObjectTypes.DssXmlTypeAttribute);
-				template.add(selectedAttrs,EnumDSSXMLAxisName.DssXmlAxisNameRows, i+1);
+				template.add(selectedAttrs,EnumDSSXMLAxisName.DssXmlAxisNameRows, i+1); 
+				if (reportInstance != null && prompt.contains(attribute.get(i))) {
+					WebWorkingSet wws = reportInstance.getWorkingSet();
+					if (wws != null) {
+	                rptFilter = wws.getFilter();
+	                WebExpression filterExpression = rptFilter.getExpression();
+	                //Create Elements Prompt for Year
+	                /*영상에서의 체크 박스 하는 부분*/
+	                createElementsPrompt(session, filterExpression, selectedAttrs);
+
+					}
+
+				}
+
 			}
 			
 			/*선택한 메트릭(선택지표) 가져옴*/
@@ -224,20 +244,7 @@ public class MstrReportUtil {
 				 wtm.add(selectedMetrics);
 				 
 			}  
-			//get filter
-			WebFilter rptFilter = null;
-			if (reportInstance != null) {
-				WebWorkingSet wws = reportInstance.getWorkingSet();
-				if (wws != null) {
-                rptFilter = wws.getFilter();
-                WebExpression filterExpression = rptFilter.getExpression();
-                //Create Elements Prompt for Year
-                /*영상에서의 체크 박스 하는 부분*/
-                createElementsPrompt(session, filterExpression, selectedAttrs);
-				}
-			}
 	
-			
 	        //apply changes
 	        WebReportManipulation rptManip = reportInstance.getReportManipulator();
 	        WebReportInstance newInst = null;
@@ -253,6 +260,8 @@ public class MstrReportUtil {
 	            // TODO : 현재는 마지막으로 선택된 애만 프롬프트로들어감 
 	            if(status == EnumDSSXMLStatus.DssXmlStatusPromptXML){
 	                WebPrompts wps = newInst.getPrompts();
+                    System.out.println("wps.size() : "+wps.size());
+
 	                for(int i = 0; i < wps.size(); i++){
 	                    switch(wps.get(i).getPromptType()){
 	                        case EnumWebPromptType.WebPromptTypeElements :
@@ -262,8 +271,8 @@ public class MstrReportUtil {
 	                            WebAttribute promptAtt = (WebAttribute) selectedAttrs;
 	                            WebElements PromptElements = promptAtt.getElementSource().getElements();
 	                            System.out.println("wps.size() : "+wps.size());
-	                            System.out.println("wps.get : "+wps.get(i));
-	                            elements.add(PromptElements.get(0).getID());
+	                            System.out.println("wps.get : "+wps.get(i)); 
+//	                            elements.add(PromptElements.get(0).getID().toString()); 
 	                            //elements.add(PromptElements.get(1).getID());
 	                            System.out.println("PromptElements : "+PromptElements.get(0).getID());
 	                            break;
@@ -322,6 +331,8 @@ public class MstrReportUtil {
         elementsPrompt.setOrigin((WebAttribute)objectinfo);
         //Set Other properties
         objectinfo.populate();
+      
+         
         String name = objectinfo.getDisplayName();
         elementsPrompt.setMeaning("Please Select Elements for " + name);
         elementsPrompt.setName("Select Elements for " + name);

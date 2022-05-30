@@ -44,11 +44,10 @@ public class WizardController {
 		return userId;
 	}
 
-	
 	//마지막 레벨 선택 후, 해당레벨의 테이블(mstr에서 폴더)목록 조회 
 	@RequestMapping(value = "/getTableList.json", method = {RequestMethod.GET, RequestMethod.POST})
 	@ResponseBody
-	public Map<String, Object> getFolderList2(@RequestBody final Map<String, Object> param, @SessionAttribute("mstr-user-vo") MstrUser mstrUser) {
+	public Map<String, Object> getTableList(@RequestBody final Map<String, Object> param, @SessionAttribute("mstr-user-vo") MstrUser mstrUser) {
 		Map<String, Object> success = ControllerUtil.getSuccessMap();
 
 		logger.debug("=> param:[{}]", param);
@@ -60,11 +59,11 @@ public class WizardController {
 			String project = CustomProperties.getProperty("mstr.default.project.name");
 			String uid = mstrUser.getId();
 			
-			String folderId = (String)param.get("lastfolderId");
-			logger.debug("=> lastfolderId:[{}]", folderId);
+			String folderId = (String)param.get("lvl4Id");
 			String folderDepth = (String) param.get("fldDepth");
 			String objTp = (String)param.get("ObjectType");
 			
+			//logger.debug("param1:{}, param2:{}, param3:{}", folderId, folderDepth, objTp);
 			int ifolderDepth = Integer.parseInt(folderDepth);
 			
 			String trustToken = CustomProperties.getProperty("mstr.trust.token");
@@ -85,13 +84,17 @@ public class WizardController {
 			}
 			
 			session = MstrUtil.connectTrustSession(server, project, uid, CustomProperties.getProperty("mstr.trust.token"));
-			list = MstrFolderBrowseUtil.getFolderTree(session, folderId, ifolderDepth, listObjType);
-			if (!objTp.equalsIgnoreCase("FolderList")) {
+			list = MstrFolderBrowseUtil.getFolderTree(
+						session, folderId, 
+						ifolderDepth, 
+						listObjType
+			);
+			 if (!objTp.equalsIgnoreCase("FolderList")) {
 				List<Map<String, Object>> listResult = new ArrayList<Map<String, Object>>();
 				excludeFolderObjectList(listResult, list);
 				
 				list = listResult;
-			}
+			} 
 			
 			success.put("folder", list);
 		} catch (Exception e) {
@@ -104,9 +107,9 @@ public class WizardController {
 		return success;
 	}	
 
-	@RequestMapping(value = "/getAttrMetricInfo.json", method = {RequestMethod.GET, RequestMethod.POST})
+	@RequestMapping(value = "/getSaveReport.json", method = {RequestMethod.GET, RequestMethod.POST})
 	@ResponseBody
-	public Map<String, Object> save_report(@RequestBody final Map<String, Object> Param, @SessionAttribute("mstr-user-vo") MstrUser mstrUser) {
+	public Map<String, Object> SaveReport(@RequestBody final Map<String, Object> Param, @SessionAttribute("mstr-user-vo") MstrUser mstrUser) {
 		
 		Map<String, Object> success = ControllerUtil.getSuccessMap();
 		WebIServerSession session = null;
@@ -148,5 +151,7 @@ public class WizardController {
 				listResult.add(tmpObjInfo);
 			}
 		}
-   }	
+   } 
+   
+	   
 }
