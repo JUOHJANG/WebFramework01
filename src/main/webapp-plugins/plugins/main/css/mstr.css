@@ -163,5 +163,5 @@ ul#menu>li.ui-menu-item {width: 199px;}
 div#attribute, div#attributeRequired {height: auto;padding: 0;}
 
 div#attribute li, div#selectAttribute li, div#attributeRequired li {color: #ccc; list-style: none; cursor: pointer;}
-
-div#attribute li.active, div#selectAttribute .active , div#attributeRequired .active {color: #111;}
+div#attribute li{padding-left: 30px;}
+div#attribute li.active, div#selectAttribute .active , div#attributeRequired .active {color: #111;  }

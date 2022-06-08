@@ -12,9 +12,11 @@ import com.mococo.microstrategy.sdk.exception.SdkRuntimeException;
 import com.mococo.microstrategy.sdk.prompt.PromptCharger;
 import com.mococo.microstrategy.sdk.prompt.config.MstrSessionProvider;
 import com.mococo.microstrategy.sdk.prompt.servlet.RequestHandler;
+import com.mococo.microstrategy.sdk.prompt.servlet.ServiceId;
 import com.mococo.microstrategy.sdk.prompt.vo.PromptElement;
 import com.mococo.microstrategy.sdk.util.MstrUtil;
 
+@ServiceId(id="mstr.prompt.subelements")
 public class PromptRequestHandler implements RequestHandler<List<PromptElement>> {
 	private static final Logger logger = LoggerFactory.getLogger(PromptRequestHandler.class);
 

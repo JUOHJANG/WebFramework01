@@ -80,11 +80,11 @@
 			
 		</div>
 	    <div class="col-2">
-		    대상관점<br>
+		    공통관점<br>
 			<div id="attribute">
 			  
 			</div>
-			필수 대상관점<br>
+			고유관점(필터)<br>
 			<div id="attributeRequired">
 			  
 			</div>

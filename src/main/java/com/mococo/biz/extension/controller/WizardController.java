@@ -71,6 +71,73 @@ public class WizardController {
 			//logger.debug("=> server:[{}], project:[{}], uid:[{}], folderId:[{}], trustToken:[{}]", server, project, uid, folderId, trustToken);
 
 			List<Integer> listObjType = null;
+			
+			if (objTp.equalsIgnoreCase("FolderList")) {
+				listObjType = Arrays.asList(
+						EnumDSSXMLObjectTypes.DssXmlTypeFolder
+				);
+			} else {
+				// Object List 
+				listObjType =Arrays.asList(
+						EnumDSSXMLObjectTypes.DssXmlTypeFolder,
+						EnumDSSXMLObjectTypes.DssXmlTypeShortcut
+				);
+			}
+
+			
+			session = MstrUtil.connectTrustSession(server, project, uid, CustomProperties.getProperty("mstr.trust.token"));
+			list = MstrFolderBrowseUtil.getFolderTree(
+						session, folderId, 
+						ifolderDepth, 
+						listObjType
+			);
+			
+			 if (!objTp.equalsIgnoreCase("FolderList")) {
+				List<Map<String, Object>> listResult = new ArrayList<Map<String, Object>>();
+				excludeFolderObjectList(listResult, list);
+				
+				list = listResult;
+			} 
+			
+			success.put("folder", list);
+		} catch (Exception e) {
+			logger.error("!!! error", e);
+			
+			throw new RuntimeException();
+		} finally {
+			if (session != null) { try { session.closeSession(); } catch (WebObjectsException e) { logger.error("!!! error", e); } }
+		}				
+		return success;
+	}	
+	
+	@RequestMapping(value = "/getObjectList.json", method = {RequestMethod.GET, RequestMethod.POST})
+	@ResponseBody
+	public Map<String, Object> getObjectList(@RequestBody final Map<String, Object> param, @SessionAttribute("mstr-user-vo") MstrUser mstrUser) {
+		Map<String, Object> success = ControllerUtil.getSuccessMap();
+
+		logger.debug("=> param:[{}]", param);
+		
+		List<Map<String, Object>> list = new ArrayList<Map<String, Object>>();
+		WebIServerSession session = null;
+		try {
+			String server = MstrUtil.getLiveServer(CustomProperties.getProperty("mstr.default.server"));
+			String project = CustomProperties.getProperty("mstr.default.project.name");
+			String uid = mstrUser.getId();
+			
+			ArrayList<String> folderId = (ArrayList<String>) param.get("lastfolderId");
+
+//			String folderId = (String)param.get("lvl4Id");
+			String folderDepth = (String) param.get("fldDepth");
+			String objTp = (String)param.get("ObjectType");
+			
+			//logger.debug("param1:{}, param2:{}, param3:{}", folderId, folderDepth, objTp);
+			int ifolderDepth = Integer.parseInt(folderDepth);
+			
+			String trustToken = CustomProperties.getProperty("mstr.trust.token");
+			
+			//logger.debug("=> server:[{}], project:[{}], uid:[{}], folderId:[{}], trustToken:[{}]", server, project, uid, folderId, trustToken);
+
+			List<Integer> listObjType = null;
 			if (objTp.equalsIgnoreCase("FolderList")) {
 				listObjType = Arrays.asList(
 						EnumDSSXMLObjectTypes.DssXmlTypeFolder
@@ -84,18 +151,13 @@ public class WizardController {
 			}
 			
 			session = MstrUtil.connectTrustSession(server, project, uid, CustomProperties.getProperty("mstr.trust.token"));
-			list = MstrFolderBrowseUtil.getFolderTree(
-						session, folderId, 
-						ifolderDepth, 
-						listObjType
-			);
-			
-			/* if (!objTp.equalsIgnoreCase("FolderList")) {
-				List<Map<String, Object>> listResult = new ArrayList<Map<String, Object>>();
-				excludeFolderObjectList(listResult, list);
-				
-				list = listResult;
-			} */
+			for (int i=0; i< folderId.size(); i++) {
+				list = MstrFolderBrowseUtil.getFolderTree(
+							session, folderId.get(i), 
+							ifolderDepth, 
+							listObjType
+				);
+			}
 			
 			success.put("folder", list);
 		} catch (Exception e) {
@@ -107,6 +169,7 @@ public class WizardController {
 		}				
 		return success;
 	}	
+	
 
 	@RequestMapping(value = "/getSaveReport.json", method = {RequestMethod.GET, RequestMethod.POST})
 	@ResponseBody
@@ -140,7 +203,7 @@ public class WizardController {
 		return success;
 	}	
 	
- /*  private void excludeFolderObjectList(List<Map<String, Object>> listResult, List<Map<String, Object>> listArgs) {
+   private void excludeFolderObjectList(List<Map<String, Object>> listResult, List<Map<String, Object>> listArgs) {
 	   int tmpVal = -1;
 	   List<Map<String, Object>> tmpChild = null; 
 	   for(Map<String, Object> tmpObjInfo : listArgs) {
@@ -152,7 +215,7 @@ public class WizardController {
 				listResult.add(tmpObjInfo);
 			}
 		}
-   }*/ 
+   }
    
 	   
 }
