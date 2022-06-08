@@ -17,7 +17,7 @@ import com.microstrategy.web.objects.WebObjectsException;
 import com.microstrategy.web.objects.WebObjectsPrompt;
 import com.microstrategy.web.objects.WebPrompt;
 import com.microstrategy.webapi.EnumDSSXMLObjectTypes;
-import com.mococo.microstrategy.sdk.exception.SdkRuntimeException;
+import com.mococo.microstrategy.sdk.core.vo.exception.SdkRuntimeException;
 import com.mococo.microstrategy.sdk.prompt.cache.CacheManager;
 import com.mococo.microstrategy.sdk.prompt.cache.CacheManager.CacheObjectType;
 import com.mococo.microstrategy.sdk.prompt.config.ConfigManager;

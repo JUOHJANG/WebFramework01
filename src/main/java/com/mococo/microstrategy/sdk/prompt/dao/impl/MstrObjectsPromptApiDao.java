@@ -8,7 +8,7 @@ import com.microstrategy.web.objects.WebObjectInfo;
 import com.microstrategy.web.objects.WebObjectsException;
 import com.microstrategy.web.objects.WebObjectsPrompt;
 import com.microstrategy.web.objects.WebSearch;
-import com.mococo.microstrategy.sdk.exception.SdkRuntimeException;
+import com.mococo.microstrategy.sdk.core.vo.exception.SdkRuntimeException;
 import com.mococo.microstrategy.sdk.prompt.dao.MstrPromptDao;
 import com.mococo.microstrategy.sdk.prompt.vo.PromptElement;
 

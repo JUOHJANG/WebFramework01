@@ -16,18 +16,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttribute;
+
 import com.microstrategy.web.objects.WebIServerSession;
 import com.microstrategy.web.objects.WebObjectsException;
 import com.microstrategy.webapi.EnumDSSXMLObjectTypes;
 import com.mococo.biz.demo.service.MstrService;
-import com.mococo.microstrategy.sdk.esm.vo.MstrUser;
+import com.mococo.microstrategy.sdk.core.util.MstrFolderBrowseUtil;
+import com.mococo.microstrategy.sdk.core.util.MstrReportUtil;
+import com.mococo.microstrategy.sdk.core.util.MstrUtil;
+import com.mococo.microstrategy.sdk.core.vo.MstrUser;
 import com.mococo.microstrategy.sdk.prompt.ReportCharger;
 import com.mococo.microstrategy.sdk.prompt.vo.Report;
-import com.mococo.microstrategy.sdk.util.MstrFolderBrowseUtil;
-import com.mococo.microstrategy.sdk.util.MstrReportUtil;
-import com.mococo.microstrategy.sdk.util.MstrUtil;
-import com.mococo.web.util.ControllerUtil;
-import com.mococo.web.util.CustomProperties;
+import com.mococo.web.core.util.ControllerUtil;
+import com.mococo.web.core.util.CustomProperties;
 
 @Controller
 public class MstrController {

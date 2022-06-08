@@ -11,9 +11,9 @@ import com.microstrategy.web.objects.WebIServerSession;
 import com.microstrategy.web.objects.WebObjectsException;
 import com.microstrategy.web.objects.WebObjectsFactory;
 import com.microstrategy.web.platform.ContainerServices;
-import com.mococo.microstrategy.sdk.esm.vo.MstrUser;
-import com.mococo.microstrategy.sdk.util.MstrUtil;
-import com.mococo.web.util.CustomProperties;
+import com.mococo.microstrategy.sdk.core.util.MstrUtil;
+import com.mococo.microstrategy.sdk.core.vo.MstrUser;
+import com.mococo.web.core.util.CustomProperties;
 
 public class CustomExternalSecurity extends AbstractExternalSecurity {
 	private static final Logger logger = LoggerFactory.getLogger(CustomExternalSecurity.class);

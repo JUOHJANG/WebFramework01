@@ -15,12 +15,12 @@ import com.microstrategy.web.objects.WebPrompts;
 import com.microstrategy.web.objects.WebReportInstance;
 import com.microstrategy.webapi.EnumDSSXMLObjectTypes;
 import com.microstrategy.webapi.EnumDSSXMLStatus;
-import com.mococo.microstrategy.sdk.exception.SdkRuntimeException;
+import com.mococo.microstrategy.sdk.core.util.MstrReportUtil;
+import com.mococo.microstrategy.sdk.core.vo.exception.SdkRuntimeException;
 import com.mococo.microstrategy.sdk.prompt.config.ConfigManager;
 import com.mococo.microstrategy.sdk.prompt.vo.ObjectConfig;
 import com.mococo.microstrategy.sdk.prompt.vo.Prompt;
 import com.mococo.microstrategy.sdk.prompt.vo.Report;
-import com.mococo.microstrategy.sdk.util.MstrReportUtil;
 
 public class ReportCharger {
 	private static final Logger logger = LoggerFactory.getLogger(ReportCharger.class);

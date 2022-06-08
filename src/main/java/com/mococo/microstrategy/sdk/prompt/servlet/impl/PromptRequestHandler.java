@@ -8,13 +8,13 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.microstrategy.web.objects.WebIServerSession;
-import com.mococo.microstrategy.sdk.exception.SdkRuntimeException;
+import com.mococo.microstrategy.sdk.core.util.MstrUtil;
+import com.mococo.microstrategy.sdk.core.vo.exception.SdkRuntimeException;
 import com.mococo.microstrategy.sdk.prompt.PromptCharger;
 import com.mococo.microstrategy.sdk.prompt.config.MstrSessionProvider;
 import com.mococo.microstrategy.sdk.prompt.servlet.RequestHandler;
 import com.mococo.microstrategy.sdk.prompt.servlet.ServiceId;
 import com.mococo.microstrategy.sdk.prompt.vo.PromptElement;
-import com.mococo.microstrategy.sdk.util.MstrUtil;
 
 @ServiceId(id="mstr.prompt.subelements")
 public class PromptRequestHandler implements RequestHandler<List<PromptElement>> {

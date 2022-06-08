@@ -28,7 +28,7 @@ import com.microstrategy.web.objects.WebPrompt;
 import com.microstrategy.webapi.EnumDSSXMLExpressionType;
 import com.microstrategy.webapi.EnumDSSXMLFunction;
 import com.microstrategy.webapi.EnumDSSXMLObjectTypes;
-import com.mococo.microstrategy.sdk.exception.SdkRuntimeException;
+import com.mococo.microstrategy.sdk.core.vo.exception.SdkRuntimeException;
 import com.mococo.microstrategy.sdk.prompt.dao.ClientResponse;
 import com.mococo.microstrategy.sdk.prompt.dao.MstrPromptDao;
 import com.mococo.microstrategy.sdk.prompt.vo.PromptElement;

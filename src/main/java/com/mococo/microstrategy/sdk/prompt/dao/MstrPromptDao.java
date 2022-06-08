@@ -8,7 +8,7 @@ import org.slf4j.LoggerFactory;
 
 import com.microstrategy.web.objects.WebObjectsException;
 import com.microstrategy.web.objects.WebPrompt;
-import com.mococo.microstrategy.sdk.exception.SdkRuntimeException;
+import com.mococo.microstrategy.sdk.core.vo.exception.SdkRuntimeException;
 import com.mococo.microstrategy.sdk.prompt.vo.PromptElement;
 
 /**

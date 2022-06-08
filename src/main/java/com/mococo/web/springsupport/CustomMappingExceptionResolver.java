@@ -15,7 +15,7 @@ import org.springframework.web.servlet.handler.SimpleMappingExceptionResolver;
 import org.springframework.web.servlet.view.json.MappingJackson2JsonView;
 
 import com.mococo.biz.exception.BizException;
-import com.mococo.web.util.HttpUtil;
+import com.mococo.web.core.util.HttpUtil;
 
 public class CustomMappingExceptionResolver extends SimpleMappingExceptionResolver implements MessageSourceAware {
 	private static final Logger logger = LoggerFactory.getLogger(CustomMappingExceptionResolver.class);

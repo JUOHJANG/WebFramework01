@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.mococo.biz.demo.service.DemoService;
 import com.mococo.biz.exception.BizException;
-import com.mococo.web.util.ParamUtil;
+import com.mococo.web.core.util.ParamUtil;
 
 @Controller
 @RequestMapping("/demo/*")

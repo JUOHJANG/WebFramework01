@@ -19,7 +19,7 @@ import com.microstrategy.web.objects.admin.users.WebUser;
 import com.microstrategy.web.objects.admin.users.WebUserGroup;
 import com.microstrategy.web.objects.admin.users.WebUserList;
 import com.mococo.microstrategy.sdk.batch.SyncUserUtil.UserInfo;
-import com.mococo.microstrategy.sdk.util.MstrUserUtil;
+import com.mococo.microstrategy.sdk.core.util.MstrUserUtil;
 
 /**
  * 사용자정보 동기화 배치 (모든 사용장 처리) - targetUserList에는 모든 권한 사용자에 대한 기준정보가 설정 (변경분만에 대한 처리가 아님)
