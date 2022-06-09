@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<%@ page import="com.mococo.web.util.CustomProperties"%>
-<%@ page import="com.mococo.microstrategy.sdk.util.MstrUtil"%>
+<%@ page import="com.mococo.web.core.util.CustomProperties"%>
+<%@ page import="com.mococo.microstrategy.sdk.core.util.MstrUtil"%>
 <%@ page import="java.util.Date" %>
 <%@ page import="java.text.SimpleDateFormat" %>
 <%

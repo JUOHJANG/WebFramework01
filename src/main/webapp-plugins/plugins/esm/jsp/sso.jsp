@@ -1,11 +1,11 @@
-<%@ page contentType="text/html; charset=utf-8" 
-%><%@ page import="java.io.InputStream"
-%><%@ page import="java.io.IOException"
-%><%@ page import="java.util.Map"
-%><%@ page import="java.util.HashMap"
-%><%@ page import="com.mococo.web.util.CustomProperties"
-%><%@ page import="com.mococo.microstrategy.sdk.esm.vo.MstrUser"
-%><%
+<%@ page contentType="text/html; charset=utf-8" %>
+<%@ page import="java.io.InputStream"%>
+<%@ page import="java.io.IOException"%>
+<%@ page import="java.util.Map"%>
+<%@ page import="java.util.HashMap"%>
+<%@ page import="com.mococo.web.core.util.CustomProperties"%>
+<%@ page import="com.mococo.microstrategy.sdk.core.vo.MstrUser"%>
+<%
 	// http://localhost:8081/MicroStrategy/plugins/esm/jsp/sso.jsp?mstrUserId=jang
 	
 	String mstrUserId = request.getParameter("mstrUserId");	

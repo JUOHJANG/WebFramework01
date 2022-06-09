@@ -21,6 +21,7 @@ vals/org.eclipse.wst.html.core.HTMLValidator/global=FF01
 vals/org.eclipse.wst.html.core.HTMLValidator/groups=0107include06111contentType136org.eclipse.wst.html.core.htmlsourceT07fileext04htmlF07fileext05xhtmlF07fileext03htmF07fileext04htplF07fileext03wmlF0107exclude0204file120src/main/webapp-mstrF0204file07workingF02
 vals/org.eclipse.wst.jsdt.core.JsValidator/global=FF01
 vals/org.eclipse.wst.jsdt.core.JsValidator/groups=0107include01113projectNature134org.eclipse.wst.jsdt.core.jsNature0107include02111contentType134org.eclipse.wst.jsdt.core.jsSourceT07fileext02jsF0107exclude0204file120src/main/webapp-mstrF0204file07workingF02
+vals/org.eclipse.wst.jsdt.web.core.JsBatchValidator/global=FF01
 vals/org.eclipse.wst.jsdt.web.core.JsBatchValidator/groups=0107include01113projectNature134org.eclipse.wst.jsdt.core.jsNature0107include11007fileext04htmlF07fileext05xhtmlF07fileext03htmF07fileext04htplF07fileext03jspF07fileext03jsfF07fileext03jsvF07fileext04jtplF111contentType136org.eclipse.wst.html.core.htmlsourceT111contentType134org.eclipse.jst.jsp.core.jspsourceT0107exclude0104file120src/main/webapp-mstrF02
 vals/org.eclipse.wst.json.core.json/groups=0107include02111contentType136org.eclipse.wst.json.core.jsonsourceT07fileext04jsonF0107exclude0104file115src/main/webapp-mstrF02
 vals/org.eclipse.wst.wsdl.validation.wsdl/global=FF02158org.eclipse.wst.wsdl.validation.internal.eclipse.Validator
